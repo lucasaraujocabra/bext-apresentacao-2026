@@ -48,3 +48,16 @@ assets/gaspar.webp  retrato do slide 12
 ```
 
 Fontes de conteúdo: `Documento Bext 2026.pdf` (deck aprovado) e `Cópia de Institucional 2025.pdf`.
+
+## Rodada 3 — comentários do Figma (24/08)
+
+- **Capa (01):** painel do mercado imobiliário à direita — skyline em linhas sobre o azul da
+  marca, selo de imóvel e a linha "crédito e financiamento imobiliário". Para usar foto do
+  cliente, trocar o `<svg class="cover-city">` por `<img src="assets/capa-imovel.webp">`.
+- **Números (04):** saiu o box "1.000 pessoas educadas financeiramente" — ficaram 4 números.
+- **Bext.IA (06):** os quatro boxes seguem abaixo do subtexto e o dashboard deu lugar ao
+  **player do vídeo da Bext.IA**. O arquivo ainda não chegou: o bloco `.vposter` é o
+  placeholder do player — quando chegar, trocar por `<video src="assets/bext-ia.mp4">` ou pelo
+  `<iframe>` do BextPlay.
+- **Home equity (07):** produto com descrição e características padronizadas — já era o master
+  aplicado nos três produtos.

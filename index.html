@@ -223,6 +223,33 @@
   #nbtn:hover{background:rgba(255,255,255,.16);color:#fff}
   #nbtn:focus-visible,.nav:focus-visible,#fs:focus-visible,#dots button:focus-visible{
     outline:2px solid #5A74FF;outline-offset:3px}
+
+  /* ---------- Capa · painel do mercado imobiliário ---------- */
+  .cover-art{position:absolute;right:0;top:0;bottom:0;width:41%;overflow:hidden;
+    background:linear-gradient(150deg,#2743E6 0%,#1B2FB0 55%,#101C6E 100%)}
+  .cover-art img{width:100%;height:100%;object-fit:cover;display:block}
+  .cover-city{position:absolute;inset:0;width:100%;height:100%}
+  .cover-seal{position:absolute;left:38px;top:56px;width:52px;height:52px;border-radius:16px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);display:grid;place-items:center;
+    backdrop-filter:blur(4px)}
+  .cover-seal svg{width:24px;height:24px}
+  .cover-cap{position:absolute;left:38px;bottom:52px;color:#fff;font-size:16px;font-weight:800;
+    letter-spacing:-.01em;line-height:1.35}
+  .cover-cap span{display:block;font-size:12.5px;font-weight:500;color:#c7d0ff;margin-top:5px;letter-spacing:.01em}
+
+  /* ---------- Player do vídeo (slide 06) ---------- */
+  .videoframe{position:relative;width:100%;max-width:470px;aspect-ratio:16/9;border-radius:18px;
+    overflow:hidden;background:#080F28;border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 30px 70px -30px rgba(3,8,30,.75)}
+  .videoframe video,.videoframe iframe{width:100%;height:100%;display:block;border:0;object-fit:cover}
+  .vposter{position:absolute;inset:0;display:grid;place-items:center;
+    background:radial-gradient(120% 120% at 28% 18%,#22336F 0%,#0A1230 68%)}
+  .vplay{width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.95);
+    display:grid;place-items:center;box-shadow:0 14px 34px rgba(3,8,30,.5)}
+  .vplay::after{content:"";width:0;height:0;margin-left:5px;
+    border-left:19px solid #2743E6;border-top:12px solid transparent;border-bottom:12px solid transparent}
+  .vtag{position:absolute;right:14px;top:13px}
+  .vcap{position:absolute;left:18px;bottom:15px;color:#e6ebff;font-size:12.5px;font-weight:600;letter-spacing:.03em}
 </style>
 
 <div id="frame">
@@ -236,23 +263,63 @@
       <div class="glow" style="width:420px;height:420px;left:-140px;bottom:-160px;background:radial-gradient(circle,#1e2f9e,transparent 70%)"></div>
       <div class="orbit" style="width:560px;height:560px;right:-70px;top:80px;border-color:rgba(255,255,255,.08)"></div>
       <div class="orbit" style="width:380px;height:380px;right:20px;top:170px;border-color:rgba(255,255,255,.10)"></div>
-      <div class="pad">
+      <!-- painel do mercado imobiliário · para usar foto do cliente, basta trocar
+           o <svg class="cover-city"> por <img src="assets/capa-imovel.webp" alt=""> -->
+      <div class="cover-art">
+        <svg class="cover-city" viewBox="0 0 540 720" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <defs>
+            <pattern id="win" width="30" height="36" patternUnits="userSpaceOnUse">
+              <rect x="7" y="9" width="15" height="19" rx="2.5" fill="rgba(255,255,255,.10)"/>
+            </pattern>
+            <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#0B1746" stop-opacity="0"/>
+              <stop offset="1" stop-color="#050B24" stop-opacity=".55"/>
+            </linearGradient>
+          </defs>
+          <!-- torres -->
+          <g stroke="rgba(255,255,255,.22)" stroke-width="1.5" fill="rgba(255,255,255,.04)">
+            <rect x="36" y="322" width="150" height="398"/>
+            <rect x="198" y="214" width="132" height="506"/>
+            <rect x="342" y="392" width="104" height="328"/>
+            <rect x="458" y="470" width="62" height="250"/>
+          </g>
+          <g fill="url(#win)">
+            <rect x="36" y="322" width="150" height="398"/>
+            <rect x="198" y="214" width="132" height="506"/>
+            <rect x="342" y="392" width="104" height="328"/>
+            <rect x="458" y="470" width="62" height="250"/>
+          </g>
+          <!-- janelas acesas -->
+          <g fill="rgba(255,255,255,.42)">
+            <rect x="73" y="367" width="15" height="19" rx="2.5"/><rect x="133" y="439" width="15" height="19" rx="2.5"/>
+            <rect x="103" y="511" width="15" height="19" rx="2.5"/><rect x="235" y="295" width="15" height="19" rx="2.5"/>
+            <rect x="265" y="403" width="15" height="19" rx="2.5"/><rect x="295" y="547" width="15" height="19" rx="2.5"/>
+            <rect x="379" y="475" width="15" height="19" rx="2.5"/><rect x="409" y="619" width="15" height="19" rx="2.5"/>
+            <rect x="475" y="543" width="15" height="19" rx="2.5"/>
+          </g>
+          <rect x="0" y="180" width="540" height="540" fill="url(#fade)"/>
+        </svg>
+        <div class="cover-seal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10" stroke="#fff" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 20v-6h4v6" stroke="#fff" fill="none" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </div>
+        <div class="cover-cap">Crédito e financiamento imobiliário<br><span>garantia de imóvel · aquisição · construção</span></div>
+      </div>
+      <div class="pad" style="right:41%">
         <div class="row rise" style="align-items:center;justify-content:space-between">
           <div class="brand on-dark">
             <svg class="logo-x" viewBox="0 0 32 32"><path d="M6 6l20 20M26 6L6 26" stroke="#5A74FF" stroke-width="5" stroke-linecap="round"/></svg>
             <span class="b-ink">bext</span>
           </div>
-          <span class="kicker" style="color:#8ea0d8">Apresentação Institucional · 2026</span>
         </div>
-        <div class="col grow" style="justify-content:center;max-width:760px">
-          <span class="eyebrow ghost rise" data-d="1" style="background:rgba(255,255,255,.08);color:#cdd7ff;border-color:rgba(255,255,255,.14);box-shadow:none"><span class="dot" style="background:#5A74FF"></span>Temos uma missão grandiosa</span>
-          <h1 class="display rise" data-d="2" style="color:#fff;margin:22px 0 0;font-size:74px">A melhor <span class="hl">fintech</span> de crédito <span class="hl">multibancos</span> do país.</h1>
-          <p class="lead rise" data-d="3" style="margin-top:24px;font-size:20px">Conectamos pessoas e empresas às melhores oportunidades de crédito do Brasil — com tecnologia, educação e experiência humanizada.</p>
+        <div class="col grow" style="justify-content:center">
+          <span class="eyebrow ghost rise" data-d="1" style="background:rgba(255,255,255,.08);color:#cdd7ff;border-color:rgba(255,255,255,.14);box-shadow:none"><span class="dot" style="background:#5A74FF"></span>Apresentação institucional · 2026</span>
+          <h1 class="display rise" data-d="2" style="color:#fff;margin:22px 0 0;font-size:52px;text-wrap:normal">A melhor <span class="hl">fintech</span><br>de crédito <span class="hl">multibancos</span><br>do país.</h1>
+          <p class="lead rise" data-d="3" style="margin-top:20px;font-size:18px;max-width:44ch">Conectamos pessoas e empresas às melhores oportunidades de crédito do Brasil — com tecnologia, educação e experiência humanizada.</p>
         </div>
-        <div class="row rise" data-d="4" style="gap:34px;align-items:center;color:#93a1cf;font-size:13px;font-weight:600;letter-spacing:.02em">
-          <span>+30 instituições financeiras</span><span style="opacity:.3">/</span>
-          <span>+5 bi em solicitações</span><span style="opacity:.3">/</span>
-          <span>+100 parceiros</span>
+        <div class="col rise" data-d="4" style="gap:7px;color:#93a1cf;font-size:12.5px;font-weight:600;letter-spacing:.02em">
+          <span>+30 instituições financeiras</span>
+          <span>+5 bi em solicitações de crédito</span>
+          <span>+100 parceiros em todo o país</span>
         </div>
       </div>
       <div class="foot-logo brand on-dark" style="font-size:15px"><svg class="logo-x" viewBox="0 0 32 32" style="width:16px;height:16px"><path d="M6 6l20 20M26 6L6 26" stroke="#5A74FF" stroke-width="5" stroke-linecap="round"/></svg></div>
@@ -327,8 +394,7 @@
           <div class="stat card" style="padding:28px 30px;display:flex;flex-direction:column;justify-content:center"><div class="tick"></div><div class="pre">+ de</div><div class="num">5 bi</div><div class="cap" style="margin-top:8px">em solicitações de crédito</div></div>
           <div class="stat card" style="padding:28px 30px;display:flex;flex-direction:column;justify-content:center"><div class="tick"></div><div class="pre">+ de</div><div class="num">2 bi</div><div class="cap" style="margin-top:8px">em créditos concedidos</div></div>
           <div class="stat card" style="padding:28px 30px;display:flex;flex-direction:column;justify-content:center"><div class="tick"></div><div class="pre">+ de</div><div class="num">10 mi</div><div class="cap" style="margin-top:8px">pessoas impactadas com nosso conteúdo</div></div>
-          <div class="stat card" style="padding:28px 30px;display:flex;flex-direction:column;justify-content:center"><div class="tick"></div><div class="pre">+ de</div><div class="num">1.000</div><div class="cap" style="margin-top:8px">pessoas educadas financeiramente</div></div>
-          <div class="stat" style="grid-column:span 2;padding:30px 34px;border-radius:20px;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow)">
+          <div class="stat" style="grid-column:span 3;padding:30px 34px;border-radius:20px;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow)">
             <div><div class="pre" style="color:#cdd7ff">+ de</div><div class="num" style="color:#fff;font-size:60px">100 parceiros</div></div>
             <div style="max-width:34ch;font-size:15px;color:#e5eaff;line-height:1.5">alavancados por operações estruturadas e uma rede ativa de distribuição em todo o país.</div>
           </div>
@@ -392,23 +458,19 @@
               <div style="background:rgba(255,255,255,.12);border-radius:12px;padding:14px 16px"><div style="font-weight:800;font-size:15px;color:#fff">Segurança ponta a ponta</div><div style="font-size:12.5px;color:#c7d0ff">jornada blindada</div></div>
             </div>
           </div>
-          <div class="col grow rise" data-d="2" style="align-items:center">
-            <div class="mock" style="width:100%;max-width:410px;padding:26px 28px">
-              <div class="mrow" style="justify-content:space-between"><div class="brand" style="font-size:16px"><svg class="logo-x" viewBox="0 0 32 32" style="width:17px;height:17px"><path d="M6 6l20 20M26 6L6 26" stroke="#2743E6" stroke-width="5" stroke-linecap="round"/></svg>Bext Score</div><span class="pill b">tempo real</span></div>
-              <div style="display:grid;place-items:center;margin:14px 0 4px">
-                <div class="gauge">
-                  <svg viewBox="0 0 230 130" style="width:230px;height:130px">
-                    <path d="M15 125 A100 100 0 0 1 215 125" fill="none" stroke="#E7EBF7" stroke-width="16" stroke-linecap="round"/>
-                    <path d="M15 125 A100 100 0 0 1 205 92" fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round"/>
-                    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2743E6"/><stop offset="1" stop-color="#5A74FF"/></linearGradient></defs>
-                  </svg>
-                  <div class="val" style="color:var(--ink)">790</div>
-                </div>
+          <div class="col grow rise" data-d="2" style="align-items:center;justify-content:center;gap:16px">
+            <!-- vídeo da Bext.IA · quando o arquivo chegar, trocar o .vposter por
+                 <video src="assets/bext-ia.mp4" poster="assets/bext-ia.webp" controls playsinline></video>
+                 ou por um <iframe> do canal (BextPlay) -->
+            <div class="videoframe">
+              <div class="vposter">
+                <span class="vplay" aria-hidden="true"></span>
               </div>
-              <div class="mrow" style="justify-content:space-between;font-size:12px;color:var(--slate)"><span>Risco baixo</span><span style="color:#16a34a;font-weight:700">Pré-aprovado</span></div>
-              <div style="height:1px;background:var(--line);margin:16px 0"></div>
-              <div class="mrow" style="justify-content:space-between;margin-bottom:10px"><span style="font-size:13px;color:var(--slate)">Crédito disponível</span><b style="font-size:15px">R$ 1.000.000,00</b></div>
-              <div class="mrow" style="justify-content:space-between"><span style="font-size:13px;color:var(--slate)">Processos ativos</span><b style="font-size:15px">2 · em análise</b></div>
+              <span class="vtag pill" style="background:rgba(255,255,255,.16);color:#fff">Bext.IA</span>
+              <div class="vcap">A Bext.IA em 60 segundos</div>
+            </div>
+            <div style="color:#dce3ff;font-size:13px;line-height:1.5;max-width:44ch;text-align:center">
+              Análise de crédito, avaliação de imóvel e jurídico acontecendo em uma só jornada.
             </div>
           </div>
         </div>
